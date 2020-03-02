@@ -12,6 +12,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.json.simple.JSONObject;
+
 import com.bridgelabz.usermanagement.iservices.UserRemote;
 import com.bridgelabz.usermangementapi.model.UserBean;
 
@@ -79,5 +81,13 @@ public class UserController {
     public List<UserBean> getLocationOnTop()
     {
     	return user.getTopLocations();
+    }
+    
+    @GET
+    @Path("latestRegistration")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+    public List<UserBean> getLatestRegistration()
+    {
+    	return user.getLatestRegistration();
     }
 }

@@ -5,6 +5,8 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
+import org.json.simple.JSONObject;
+
 import com.bridgelabz.usermanagement.repository.DatabaseServiceRemote;
 import com.bridgelabz.usermangementapi.model.UserBean;
 
@@ -59,5 +61,11 @@ public class User implements UserRemote {
     public List<UserBean> getTopLocations()
     {
     	return dbservice.getTopLocation();
+    }
+    
+    @Override
+    public List<UserBean> getLatestRegistration()
+    {
+    	return dbservice.getLatestRegistration();
     }
 }

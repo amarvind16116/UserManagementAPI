@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.ejb.Remote;
 
+import org.json.simple.JSONObject;
+
 import com.bridgelabz.usermangementapi.model.UserBean;
 
 @Remote
@@ -20,4 +22,6 @@ public interface UserRemote {
 	List<UserBean> getGenderWise(String gender);
 
 	List<UserBean> getTopLocations();
+
+	List<UserBean> getLatestRegistration();
 }

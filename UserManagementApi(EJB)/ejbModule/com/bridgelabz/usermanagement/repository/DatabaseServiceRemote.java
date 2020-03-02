@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.ejb.Remote;
 
+import org.json.simple.JSONObject;
+
 import com.bridgelabz.usermangementapi.model.UserBean;
 
 @Remote
@@ -14,4 +16,5 @@ public interface DatabaseServiceRemote {
 	String deleteUser(String email);
 	List<UserBean> getUserByGender(String gender);
 	public List<UserBean> getTopLocation();
+	List<UserBean> getLatestRegistration();
 }

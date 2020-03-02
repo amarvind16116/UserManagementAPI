@@ -13,5 +13,8 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="/home/admin1/Downloads/mysql-connector-java-5.1.38.jar"/>
+	<classpathentry kind="lib" path="/home/admin1/Downloads/JERSEY-DEMO/src/main/webapp/WEB-INF/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/admin1/Downloads/JERSEY-DEMO/src/main/webapp/WEB-INF/lib/jackson-mapper-asl-1.9.13.jar"/>
+	<classpathentry kind="lib" path="/home/admin1/Downloads/JERSEY-DEMO/src/main/webapp/WEB-INF/lib/jackson-core-asl-1.9.13.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

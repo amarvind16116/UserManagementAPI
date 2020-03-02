@@ -172,4 +172,27 @@ public class DatabaseServiceImplementation implements DatabaseServiceRemote {
 	}
 	   return list;
    }
+   
+   @Override
+   public List<UserBean> getLatestRegistration()
+   {
+	   list = new ArrayList<UserBean>();
+	   try {
+		pstmt = getConnection().prepareStatement("SELECT first_name,middle_name,last_name from USER ORDER BY user_id DESC LIMIT 10");
+		rs = pstmt.executeQuery();
+		while(rs.next())
+		{
+			user = new UserBean();
+			
+			user.setFirst_name(rs.getString(1));
+			user.setMiddle_name(rs.getString(2));
+			user.setLast_name(rs.getString(3));
+			
+			list.add(user);
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	   return list;
+   }
 }
