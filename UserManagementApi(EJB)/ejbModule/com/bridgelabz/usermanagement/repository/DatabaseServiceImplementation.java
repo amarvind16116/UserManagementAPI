@@ -6,12 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
 
-import com.bridgelabz.usermangementapi.model.UserBean;
+import com.bridgelabz.usermanagement.model.UserBean;
 
 /**
  * Session Bean implementation class Database
@@ -27,6 +29,7 @@ public class DatabaseServiceImplementation implements DatabaseServiceRemote {
 	UserBean user;
 	
 	List<UserBean> list;
+	List<Integer> stringlist;
 	
 	public Connection getConnection()
 	{
@@ -194,5 +197,33 @@ public class DatabaseServiceImplementation implements DatabaseServiceRemote {
 		e.printStackTrace();
 	}
 	   return list;
+   }
+   
+   @Override
+   public int ageCalculator(LocalDate dob)
+   {
+	   
+	   LocalDate currDate = LocalDate.now();
+	   return Period.between(dob, currDate).getYears();
+   }
+   
+   @Override
+   public List<Integer> getUsersAge()
+   {
+	   stringlist = new ArrayList<Integer>();
+	   try {
+		   pstmt = getConnection().prepareStatement("SELECT date_of_birth from USER");
+		   rs = pstmt.executeQuery();
+		   while(rs.next())
+		   {
+			   LocalDate dob = LocalDate.parse(rs.getString(1));
+			   System.out.println(ageCalculator(dob));
+			   stringlist.add(ageCalculator(dob));
+		   }
+	   }
+	   catch (Exception e) {
+		e.printStackTrace();
+	}
+	   return stringlist;
    }
 }

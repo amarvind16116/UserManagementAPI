@@ -5,10 +5,8 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
-import org.json.simple.JSONObject;
-
+import com.bridgelabz.usermanagement.model.UserBean;
 import com.bridgelabz.usermanagement.repository.DatabaseServiceRemote;
-import com.bridgelabz.usermangementapi.model.UserBean;
 
 /**
  * Session Bean implementation class User
@@ -67,5 +65,11 @@ public class User implements UserRemote {
     public List<UserBean> getLatestRegistration()
     {
     	return dbservice.getLatestRegistration();
+    }
+    
+    @Override 
+    public List<Integer> getAge()
+    {
+    	return dbservice.getUsersAge();
     }
 }

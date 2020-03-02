@@ -1,4 +1,4 @@
-package com.bridgelabz.usermangementapi.model;
+package com.bridgelabz.usermanagement.model;
 
 import java.io.Serializable;
 
